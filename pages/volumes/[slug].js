@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { volumes } from "../../lib/data";
 import styled, { css } from "styled-components";
-import right from "@/public/images/arrow-right.svg";
-import left from "@/public/images/arrow-left.svg";
+import Right from "@/public/images/arrow-right.svg";
+import Left from "@/public/images/arrow-left.svg";
 
 export default function VolumeDetail() {
   const router = useRouter();
@@ -51,8 +51,8 @@ export default function VolumeDetail() {
       {previousVolume ? (
         <div>
           <Link href={`/volumes/${previousVolume.slug}`}>
-            <Image src={left} alt="next page" width={20} height={20} /> Previous
-            Volume: {previousVolume.title}
+            <Left alt="next page" width={20} height={20} /> Previous Volume:{" "}
+            {previousVolume.title}
           </Link>
         </div>
       ) : null}
@@ -60,7 +60,7 @@ export default function VolumeDetail() {
         <div>
           <Link href={`/volumes/${nextVolume.slug}`}>
             Next Volume: {nextVolume.title}{" "}
-            <Image src={right} alt="next page" width={20} height={20} />
+            <Right alt="next page" width={20} height={20} />
           </Link>
         </div>
       ) : null}
