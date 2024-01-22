@@ -22,9 +22,10 @@ export default function VolumeDetail() {
 
   const { title, description, cover, books, color } = volume;
   console.log("color", color);
-  const StyledSection = styled.div`
+  const StyledBooks = styled.div`
     background-color: ${(prop) =>
       prop.$backgroundcolor === "white" ? "white" : prop.$backgroundcolor};
+    color: var(--color-clouds);
   `;
 
   return (
@@ -32,7 +33,7 @@ export default function VolumeDetail() {
       <Link href="/volumes">← All Volumes</Link>
       <h1>{title}</h1>
       <p>{description}</p>
-      <StyledSection $backgroundcolor={color}>
+      <StyledBooks $backgroundcolor={color}>
         <ul>
           {books.map(({ ordinal, title }) => (
             <li key={title}>
@@ -46,7 +47,7 @@ export default function VolumeDetail() {
           width={140}
           height={230}
         />
-      </StyledSection>
+      </StyledBooks>
       {previousVolume ? (
         <div>
           <Link href={`/volumes/${previousVolume.slug}`}>
